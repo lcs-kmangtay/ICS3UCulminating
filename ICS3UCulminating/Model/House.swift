@@ -76,3 +76,4 @@ let exampleHouseList = [
     rashleigh,
     wadsworth,
 ]
+

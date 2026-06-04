@@ -14,6 +14,12 @@
 		8B2FE8EB2FCDDC8500290534 /* HousesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2FE8EA2FCDDC8500290534 /* HousesListView.swift */; };
 		8B2FE8ED2FCDDC8500290534 /* HouseItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2FE8EC2FCDDC8500290534 /* HouseItemView.swift */; };
 		8B2FE8EF2FCDDC8600290534 /* RELEASE.md in Resources */ = {isa = PBXBuildFile; fileRef = 8B2FE8EE2FCDDC8600290534 /* RELEASE.md */; };
+		8B7FC1BD2FCF66B9004FA00A /* Words.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B7FC1BC2FCF66B9004FA00A /* Words.json */; };
+		8B7FC1BF2FCF66C5004FA00A /* HangmanGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FC1BE2FCF66C5004FA00A /* HangmanGame.swift */; };
+		8B7FC1C12FCF97F0004FA00A /* HangmanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FC1C02FCF97F0004FA00A /* HangmanViewModel.swift */; };
+		8B7FC1C32FCFA87E004FA00A /* GallowsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FC1C22FCFA87E004FA00A /* GallowsView.swift */; };
+		8B7FC1C52FCFA888004FA00A /* WordDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FC1C42FCFA888004FA00A /* WordDisplayView.swift */; };
+		8B7FC1C72FCFA896004FA00A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FC1C62FCFA896004FA00A /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +31,12 @@
 		8B2FE8EA2FCDDC8500290534 /* HousesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousesListView.swift; sourceTree = "<group>"; };
 		8B2FE8EC2FCDDC8500290534 /* HouseItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseItemView.swift; sourceTree = "<group>"; };
 		8B2FE8EE2FCDDC8600290534 /* RELEASE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = RELEASE.md; sourceTree = "<group>"; };
+		8B7FC1BC2FCF66B9004FA00A /* Words.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Words.json; sourceTree = "<group>"; };
+		8B7FC1BE2FCF66C5004FA00A /* HangmanGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangmanGame.swift; sourceTree = "<group>"; };
+		8B7FC1C02FCF97F0004FA00A /* HangmanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangmanViewModel.swift; sourceTree = "<group>"; };
+		8B7FC1C22FCFA87E004FA00A /* GallowsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallowsView.swift; sourceTree = "<group>"; };
+		8B7FC1C42FCFA888004FA00A /* WordDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDisplayView.swift; sourceTree = "<group>"; };
+		8B7FC1C62FCFA896004FA00A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +75,8 @@
 				8B2FE8E32FCDDC8500290534 /* Model */,
 				8B2FE8E62FCDDC8500290534 /* ViewModels */,
 				8B2FE8E92FCDDC8500290534 /* Views */,
+				8B7FC1BA2FCF660D004FA00A /* Resources 2 */,
+				8B7FC1BB2FCF66B0004FA00A /* Resources */,
 			);
 			path = ICS3UCulminating;
 			sourceTree = "<group>";
@@ -71,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				8B2FE8E42FCDDC8500290534 /* House.swift */,
+				8B7FC1BE2FCF66C5004FA00A /* HangmanGame.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -79,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				8B2FE8E72FCDDC8500290534 /* HouseListViewModel.swift */,
+				8B7FC1C02FCF97F0004FA00A /* HangmanViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -88,8 +104,27 @@
 			children = (
 				8B2FE8EA2FCDDC8500290534 /* HousesListView.swift */,
 				8B2FE8EC2FCDDC8500290534 /* HouseItemView.swift */,
+				8B7FC1C22FCFA87E004FA00A /* GallowsView.swift */,
+				8B7FC1C42FCFA888004FA00A /* WordDisplayView.swift */,
+				8B7FC1C62FCFA896004FA00A /* ContentView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		8B7FC1BA2FCF660D004FA00A /* Resources 2 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Resources 2";
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8B7FC1BB2FCF66B0004FA00A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8B7FC1BC2FCF66B9004FA00A /* Words.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +188,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B7FC1BD2FCF66B9004FA00A /* Words.json in Resources */,
 				8B2FE8EF2FCDDC8600290534 /* RELEASE.md in Resources */,
 				8B2FE8E22FCDDC8500290534 /* Assets.xcassets in Resources */,
 			);
@@ -165,10 +201,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B7FC1C32FCFA87E004FA00A /* GallowsView.swift in Sources */,
+				8B7FC1C52FCFA888004FA00A /* WordDisplayView.swift in Sources */,
 				8B2FE8ED2FCDDC8500290534 /* HouseItemView.swift in Sources */,
 				8B2FE8E52FCDDC8500290534 /* House.swift in Sources */,
+				8B7FC1C12FCF97F0004FA00A /* HangmanViewModel.swift in Sources */,
 				8B2FE8EB2FCDDC8500290534 /* HousesListView.swift in Sources */,
+				8B7FC1C72FCFA896004FA00A /* ContentView.swift in Sources */,
 				8B2FE8E82FCDDC8500290534 /* HouseListViewModel.swift in Sources */,
+				8B7FC1BF2FCF66C5004FA00A /* HangmanGame.swift in Sources */,
 				8B2FE8E02FCDDC8500290534 /* ICS3UCulminatingApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
