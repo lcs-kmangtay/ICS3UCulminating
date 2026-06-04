@@ -13,10 +13,10 @@ struct HangmanGame {
     
     // MARK: - Stored properties
     
-    // The word that the player is trying to guess
+    // The word that the player is trying to guess (Stored in UPPERCASE)
     let currentWord: String
     
-    // A list of letters that the player has already guessed
+    // A list of letters that the player has already guessed (Stored in UPPERCASE)
     var guessedLetters: [Character] = []
     
     // The maximum number of incorrect guesses allowed before the game is lost
@@ -28,10 +28,8 @@ struct HangmanGame {
     var incorrectGuessesCount: Int {
         var count: Int = 0
         for letter in guessedLetters {
-            // Check if the guessed letter is NOT in the current word
-            // We use uppercase comparison to ensure it's case-insensitive
-            let upperLetter = String(letter).uppercased()
-            if currentWord.uppercased().contains(upperLetter) == false {
+            // Since both are uppercase, we can compare directly
+            if currentWord.contains(letter) == false {
                 count += 1
             }
         }
@@ -40,9 +38,13 @@ struct HangmanGame {
     
     // Whether the game has been won
     var isWinner: Bool {
+        // If the word is empty, we haven't won anything
+        if currentWord.isEmpty {
+            return false
+        }
+        
         for letter in currentWord {
-            let upperLetter = letter.uppercased()
-            if guessedLetters.contains(Character(upperLetter)) == false {
+            if guessedLetters.contains(letter) == false {
                 return false
             }
         }

@@ -31,25 +31,23 @@ struct ContentView: View {
                 GallowsView(incorrectGuessesCount: viewModel.incorrectGuessesCount)
             }
             .frame(maxWidth: .infinity)
-            .padding(.top, 20)
+            .padding(.top, 10)
             
             Spacer()
             
             // --- Middle Section: Word Display ---
-            VStack {
+            VStack(spacing: 15) {
                 // Status Message
                 if viewModel.isWinner {
                     Text("🎉 You Won! 🎉")
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundColor(.green)
-                        .transition(.scale)
                 } else if viewModel.isLoser {
                     Text("💀 Game Over! 💀")
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundColor(.red)
-                        .transition(.scale)
                 } else {
                     Text("Guess the Word")
                         .font(.headline)
@@ -61,73 +59,78 @@ struct ContentView: View {
                 
                 if viewModel.isLoser {
                     Text("The word was: \(viewModel.currentWord)")
-                        .font(.title3)
+                        .font(.headline)
                         .foregroundColor(.orange)
-                        .padding(.top, 5)
                 }
             }
+            .padding(.vertical, 10)
             
             Spacer()
             
-            // --- Bottom Section: QWERTY Keyboard ---
-            VStack(spacing: 12) {
+            // --- Bottom Section: Compact QWERTY Keyboard ---
+            VStack(spacing: 8) {
                 // Row 1
                 keyboardRow(row1)
                 
                 // Row 2
                 keyboardRow(row2)
                 
-                // Row 3 (Includes New Game button for convenience)
-                HStack(spacing: 8) {
+                // Row 3 (Includes New Game button)
+                HStack(spacing: 6) {
                     keyboardRow(row3)
                     
-                    // New Game Button
                     Button(action: {
                         viewModel.startNewGame()
                     }) {
-                        Image(systemName: "arrow.clockwise.circle.fill")
-                            .font(.title)
-                            .foregroundColor(.blue)
-                            .frame(width: 44, height: 44)
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 6)
+                                .fill(Color.blue.opacity(0.15))
+                                .frame(width: 40, height: 42)
+                            
+                            Image(systemName: "arrow.clockwise")
+                                .font(.headline)
+                                .foregroundColor(.blue)
+                        }
                     }
                     .buttonStyle(.plain)
-                    .help("Start New Game")
                 }
             }
-            .padding(.bottom, 30)
+            .padding(.horizontal, 20)
+            .padding(.bottom, 25)
             
-            // Session Stats (Moved to bottom small text to keep main UI clean)
+            // Session Stats
             HStack {
-                Text("Wins: \(viewModel.totalWins)")
+                Label("Wins: \(viewModel.totalWins)", systemImage: "trophy.fill")
                 Spacer()
-                Text("Losses: \(viewModel.totalLosses)")
+                Label("Losses: \(viewModel.totalLosses)", systemImage: "xmark.circle.fill")
             }
             .font(.caption)
+            .fontWeight(.medium)
             .foregroundColor(.secondary)
-            .padding(.horizontal, 40)
-            .padding(.bottom, 10)
+            .padding(.horizontal, 50)
+            .padding(.bottom, 15)
         }
-        .padding(30) // Main layout padding
-        .frame(minWidth: 800, minHeight: 700)
+        .padding(20)
+        .frame(minWidth: 700, minHeight: 650)
+        .background(Color.primary.opacity(0.05))
     }
     
     // MARK: - Helper Views
     
-    /// Creates a row of keyboard buttons
+    /// Creates a row of compact keyboard buttons
     func keyboardRow(_ characters: [Character]) -> some View {
-        HStack(spacing: 8) {
+        HStack(spacing: 6) {
             ForEach(characters, id: \.self) { letter in
                 Button(action: {
                     viewModel.submitGuess(letter)
                 }) {
                     Text(String(letter))
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .frame(width: 44, height: 50)
+                        .font(.system(size: 18, weight: .bold, design: .rounded))
+                        .frame(width: 36, height: 42)
                         .background(buttonColor(for: letter))
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                        .shadow(radius: 1)
+                        .foregroundColor(viewModel.guessedLetters.contains(letter) ? .white : .primary.opacity(0.8))
+                        .cornerRadius(6)
+                        .shadow(color: .black.opacity(0.1), radius: 1, y: 1)
                 }
                 .disabled(viewModel.guessedLetters.contains(letter) || viewModel.isWinner || viewModel.isLoser)
                 .buttonStyle(.plain)
@@ -141,7 +144,7 @@ struct ContentView: View {
     func buttonColor(for letter: Character) -> Color {
         // If the letter hasn't been guessed yet
         if viewModel.guessedLetters.contains(letter) == false {
-            return .blue
+            return Color.secondary.opacity(0.15)
         }
         
         // If it was guessed and is in the word (Correct)
@@ -150,7 +153,7 @@ struct ContentView: View {
         }
         
         // If it was guessed but is NOT in the word (Incorrect)
-        return .gray.opacity(0.4)
+        return .gray.opacity(0.3)
     }
 }
 
