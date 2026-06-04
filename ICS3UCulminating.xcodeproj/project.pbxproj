@@ -20,6 +20,9 @@
 		8B7FC1C32FCFA87E004FA00A /* GallowsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FC1C22FCFA87E004FA00A /* GallowsView.swift */; };
 		8B7FC1C52FCFA888004FA00A /* WordDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FC1C42FCFA888004FA00A /* WordDisplayView.swift */; };
 		8B7FC1C72FCFA896004FA00A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FC1C62FCFA896004FA00A /* ContentView.swift */; };
+		8BFBEDFA2FD1B59900F2554A /* GameHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFBEDF92FD1B59900F2554A /* GameHistory.swift */; };
+		8BFBEDFC2FD1B59900F2554A /* HangmanGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFBEDFB2FD1B59900F2554A /* HangmanGameView.swift */; };
+		8BFBEDFE2FD1B59900F2554A /* MatchHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFBEDFD2FD1B59900F2554A /* MatchHistoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,9 @@
 		8B7FC1C22FCFA87E004FA00A /* GallowsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallowsView.swift; sourceTree = "<group>"; };
 		8B7FC1C42FCFA888004FA00A /* WordDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDisplayView.swift; sourceTree = "<group>"; };
 		8B7FC1C62FCFA896004FA00A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8BFBEDF92FD1B59900F2554A /* GameHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHistory.swift; sourceTree = "<group>"; };
+		8BFBEDFB2FD1B59900F2554A /* HangmanGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangmanGameView.swift; sourceTree = "<group>"; };
+		8BFBEDFD2FD1B59900F2554A /* MatchHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchHistoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +92,7 @@
 			children = (
 				8B2FE8E42FCDDC8500290534 /* House.swift */,
 				8B7FC1BE2FCF66C5004FA00A /* HangmanGame.swift */,
+				8BFBEDF92FD1B59900F2554A /* GameHistory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -107,6 +114,8 @@
 				8B7FC1C22FCFA87E004FA00A /* GallowsView.swift */,
 				8B7FC1C42FCFA888004FA00A /* WordDisplayView.swift */,
 				8B7FC1C62FCFA896004FA00A /* ContentView.swift */,
+				8BFBEDFB2FD1B59900F2554A /* HangmanGameView.swift */,
+				8BFBEDFD2FD1B59900F2554A /* MatchHistoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -204,10 +213,13 @@
 				8B7FC1C32FCFA87E004FA00A /* GallowsView.swift in Sources */,
 				8B7FC1C52FCFA888004FA00A /* WordDisplayView.swift in Sources */,
 				8B2FE8ED2FCDDC8500290534 /* HouseItemView.swift in Sources */,
+				8BFBEDFC2FD1B59900F2554A /* HangmanGameView.swift in Sources */,
 				8B2FE8E52FCDDC8500290534 /* House.swift in Sources */,
 				8B7FC1C12FCF97F0004FA00A /* HangmanViewModel.swift in Sources */,
 				8B2FE8EB2FCDDC8500290534 /* HousesListView.swift in Sources */,
 				8B7FC1C72FCFA896004FA00A /* ContentView.swift in Sources */,
+				8BFBEDFA2FD1B59900F2554A /* GameHistory.swift in Sources */,
+				8BFBEDFE2FD1B59900F2554A /* MatchHistoryView.swift in Sources */,
 				8B2FE8E82FCDDC8500290534 /* HouseListViewModel.swift in Sources */,
 				8B7FC1BF2FCF66C5004FA00A /* HangmanGame.swift in Sources */,
 				8B2FE8E02FCDDC8500290534 /* ICS3UCulminatingApp.swift in Sources */,

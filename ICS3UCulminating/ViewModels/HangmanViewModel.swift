@@ -22,6 +22,9 @@ class HangmanViewModel {
     private(set) var totalWins: Int = 0
     private(set) var totalLosses: Int = 0
     
+    // Match History
+    private(set) var gameHistory: [GameHistory] = []
+    
     // MARK: - Computed properties
     
     // Expose game properties for the view
@@ -55,8 +58,9 @@ class HangmanViewModel {
         // Start a new game using the helper
         self.game = WordLoader.startNewGame()
         
-        // Load saved stats
+        // Load saved stats and history
         loadStats()
+        loadHistory()
     }
     
     // MARK: - Functions
@@ -85,12 +89,14 @@ class HangmanViewModel {
         if alreadyGuessed == false {
             game.guessedLetters.append(upperLetter)
             
-            // Check if this guess ended the game and update stats
+            // Check if this guess ended the game
             if game.isWinner {
                 totalWins += 1
+                addToHistory(isWin: true)
                 saveStats()
             } else if game.isLoser {
                 totalLosses += 1
+                addToHistory(isWin: false)
                 saveStats()
             }
         }
@@ -101,14 +107,33 @@ class HangmanViewModel {
         self.game = WordLoader.startNewGame()
     }
     
-    /// Resets the persistent win/loss counters.
-    func resetStats() {
+    /// Adds the current game result to history.
+    private func addToHistory(isWin: Bool) {
+        let entry = GameHistory(word: game.currentWord, isWin: isWin)
+        // Add to the beginning of the array so most recent is at index 0
+        gameHistory.insert(entry, at: 0)
+        saveHistory()
+    }
+    
+    /// Resets the persistent win/loss counters and history.
+    func resetAllData() {
         totalWins = 0
         totalLosses = 0
+        gameHistory = []
         saveStats()
+        saveHistory()
     }
     
     // MARK: - Persistence Functions
+    
+    private func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
+    private func historyFilePath() -> URL {
+        return getDocumentsDirectory().appendingPathComponent("hangman_history.json")
+    }
     
     /// Saves the current win/loss counts to UserDefaults.
     private func saveStats() {
@@ -122,5 +147,30 @@ class HangmanViewModel {
         let defaults = UserDefaults.standard
         totalWins = defaults.integer(forKey: "HangmanTotalWins")
         totalLosses = defaults.integer(forKey: "HangmanTotalLosses")
+    }
+    
+    /// Saves the game history to a JSON file.
+    private func saveHistory() {
+        do {
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(gameHistory)
+            try data.write(to: historyFilePath(), options: [.atomicWrite, .completeFileProtection])
+        } catch {
+            print("Failed to save history: \(error.localizedDescription)")
+        }
+    }
+    
+    /// Loads the game history from a JSON file.
+    private func loadHistory() {
+        let path = historyFilePath()
+        if FileManager.default.fileExists(atPath: path.path) {
+            do {
+                let data = try Data(contentsOf: path)
+                let decoder = JSONDecoder()
+                gameHistory = try decoder.decode([GameHistory].self, from: data)
+            } catch {
+                print("Failed to load history: \(error.localizedDescription)")
+            }
+        }
     }
 }
