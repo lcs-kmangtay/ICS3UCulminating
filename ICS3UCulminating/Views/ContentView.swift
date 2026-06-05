@@ -42,11 +42,7 @@ struct ContentView: View {
                     .tag(1)
             }
             // Applying padding to the tab bar area to keep it away from edges
-            .padding(.horizontal, 20)
-            .padding(.bottom, 10)
         }
-        .padding(20) // Overall screen layout padding
-        .frame(minWidth: 700, minHeight: 750)
         .background(Color.primary.opacity(0.02))
     }
 }
